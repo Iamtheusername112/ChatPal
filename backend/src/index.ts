@@ -1,22 +1,16 @@
-import express from "express";
-import { config } from "dotenv";
+import app from "./app.js";
+import { connectToDatabase } from "./db/connection.js";
 
-const app = express();
+const port = process.env.PORT || 1700;
 
-// Use the 'config' method to load the environment variables from the .env file
-config();
+// connections and listeners
 
-//Middlewares
-app.use(express.json());
-
-// Routes
-
-app.get("/", (req, res) => {
-  res.json("Hello world");
-});
-
-const port = process.env.PORT;
-
-app.listen(port, () => {
-  console.log(`Server is running on http:/localhost: ${port}`);
-});
+connectToDatabase()
+  .then(() => {
+    app.listen(port, () => {
+      console.log(
+        `Server is running on http:/localhost: ${port} and connected to the database`
+      );
+    });
+  })
+  .catch((err) => console.log(err));
