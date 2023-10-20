@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import appRouter from "./routes/index.js";
 import { config } from "dotenv";
 
 const app = express();
@@ -11,7 +12,7 @@ config();
 app.use(express.json());
 app.use(morgan("dev")); //Use 'morgan' for request logging
 
-app.use("/api/v1");
+app.use("/api/v1", appRouter);
 
 // Routes
 
