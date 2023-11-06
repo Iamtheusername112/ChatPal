@@ -15,7 +15,6 @@ export const validate = (validations) => {
     };
 };
 export const loginValidator = [
-    body("name").notEmpty().withMessage("Name is required!!"),
     body("email").trim().isEmail().withMessage("Email is required!"),
     body("password")
         .trim()
