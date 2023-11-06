@@ -20,7 +20,7 @@ export const loginValidator = [
     body("password")
         .trim()
         .isLength({ min: 7 })
-        .withMessage("Password shopuld contain at least 7 characters"),
+        .withMessage("Password should contain at least 7 characters"),
 ];
 export const signupValidator = [
     body("name").notEmpty().withMessage("Name is required!!"),
