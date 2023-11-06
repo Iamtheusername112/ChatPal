@@ -1,0 +1,27 @@
+/* Logo.css */
+.logo-container {
+  display: flex;
+  margin-right: auto;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-img {
+  width: 30px;
+  height: 30px;
+}
+
+.logo-text {
+  display: block; /* Display control based on breakpoints */
+  margin-right: auto; /* Margin-right control */
+  font-weight: 800;
+  text-shadow: 2px 2px 20px #000;
+  font-size: 20px;
+}
+
+/* Add breakpoints for display property */
+@media (max-width: 600px) {
+  .logo-text {
+    display: none;
+  }
+}
